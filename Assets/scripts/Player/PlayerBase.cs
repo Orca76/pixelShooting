@@ -80,7 +80,7 @@ public class PlayerBase : MonoBehaviour
         HpGauge.value = HP[CharaIndex] / MaxHp[CharaIndex];//HPゲージの処理
         MpGauge.value = MP[CharaIndex] / MaxMp[CharaIndex];//Mpゲージの処理
         hpText.text = HP[CharaIndex].ToString() + "/" + MaxHp[CharaIndex].ToString();
-        mpText.text = MP[CharaIndex].ToString() + "/" + MaxMp[CharaIndex].ToString();
+        mpText.text = Mathf.FloorToInt( MP[CharaIndex]).ToString() + "/" + MaxMp[CharaIndex].ToString();
 
       
         
