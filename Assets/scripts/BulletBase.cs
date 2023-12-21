@@ -33,9 +33,9 @@ public class BulletBase : MonoBehaviour
         if (RelatedComponent)
         {
             Damage = RelatedComponent.GetComponent<BulletComponent>().damage;
-            Debug.Log("relatedname=" + RelatedComponent.name + " damage=" + Damage);
+           // Debug.Log("relatedname=" + RelatedComponent.name + " damage=" + Damage);
             requiredMp = RelatedComponent.GetComponent<BulletComponent>().cost;
-            Debug.Log("relatedname=" + RelatedComponent.name + " mp=" + requiredMp);
+          //  Debug.Log("relatedname=" + RelatedComponent.name + " mp=" + requiredMp);
 
 
             if (RelatedComponent.GetComponent<BulletComponent>().Adjust == 1)//ñÇóÕè¡îÔå∏è≠

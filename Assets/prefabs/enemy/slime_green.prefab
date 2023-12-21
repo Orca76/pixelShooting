@@ -485,7 +485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 15
   maxHp: 15
-  speed: 0.5
+  speed: 0.25
   bullet: {fileID: 1348580658240782334, guid: ae914858bb0c80e4c9145cdf723fb936, type: 3}
   shotSpan: 3
   turret: {fileID: 7178204211790819465}
@@ -496,6 +496,8 @@ MonoBehaviour:
   copper: {fileID: 5485011937822387722, guid: d76e6002dcbd5ea4bbef465505ca256d, type: 3}
   SpriteDirection: 1
   dropRate: 5
+  itemDropRate: 10
+  minion: 1
 --- !u!114 &7178204211718667545
 MonoBehaviour:
   m_ObjectHideFlags: 0

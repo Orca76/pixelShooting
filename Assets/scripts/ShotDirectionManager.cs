@@ -131,10 +131,11 @@ public class ShotDirectionManager : MonoBehaviour
         }
         if (ModuleType == 2)
         {
+            Debug.Log("T="+t);
             t += Time.deltaTime;
             if (t > span)
             {
-
+                Debug.Log("TIme!");
                 if (Player.GetComponent<PlayerBase>().MP[Player.GetComponent<PlayerBase>().CharaIndex] > 0)//–‚—Í‚ªc‚Á‚Ä‚¢‚éê‡
                 {
                     if (Bullet == null)
@@ -200,16 +201,18 @@ public class ShotDirectionManager : MonoBehaviour
 
                         Player.GetComponent<PlayerBase>().MP[Player.GetComponent<PlayerBase>().CharaIndex] -= Cost;
                         t = 0;
+                        if (BulletCharge <= 0)
+                        {
+                            Destroy(gameObject);
+                        }
                     }
 
 
                 }
                
             }
-            if (BulletCharge <= 0)
-            {
-                Destroy(gameObject);
-            }
+
+           
         }
 
     }
@@ -286,6 +289,7 @@ public class ShotDirectionManager : MonoBehaviour
                         }
                         Cost = DataNewObj.RelatedComponent.GetComponent<BulletComponent>().cost;
                         Player.GetComponent<PlayerBase>().MP[Player.GetComponent<PlayerBase>().CharaIndex] -= Cost;
+
                         Destroy(gameObject);
 
                     }

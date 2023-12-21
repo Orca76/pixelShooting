@@ -106,6 +106,8 @@ MonoBehaviour:
   requiredMp: 7
   penetrate: 0
   damageText: {fileID: 7334577376043158312, guid: 8af27fa58acdc3a49a273afadda150aa, type: 3}
+  multiHit: 0
+  interval: 0
 --- !u!61 &7028144190235276460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -167,3 +169,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   LifeTime: 10
+  velocityChangeRate: 0
+  rotateSpeed: 3

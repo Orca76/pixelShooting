@@ -2249,10 +2249,10 @@ MonoBehaviour:
   - 50
   - 50
   MpRegenerateSpeed:
-  - 0.01
-  - 0.01
-  - 0.01
-  - 0.01
+  - 0.1
+  - 0.1
+  - 0.1
+  - 0.1
   Speed:
   - 1
   - 1
@@ -2303,6 +2303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  GunSystem: {fileID: 0}
 --- !u!50 &8936681191630945377
 Rigidbody2D:
   serializedVersion: 4

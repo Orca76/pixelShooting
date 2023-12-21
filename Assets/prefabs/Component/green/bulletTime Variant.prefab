@@ -64,6 +64,10 @@ PrefabInstance:
       value: "\u4E00\u5B9A\u6642\u9593\u7D4C\u904E\u5F8C\u30BB\u30C3\u30C8\u3057\u305F\u5F3E\u4E38\u3092\u6483\u3061\u3060\u3059"
       objectReference: {fileID: 0}
     - target: {fileID: 2090688382363706921, guid: 8659b0131be8b1249a31dfe7ee483fde, type: 3}
+      propertyPath: lifeTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090688382363706921, guid: 8659b0131be8b1249a31dfe7ee483fde, type: 3}
       propertyPath: bulletName
       value: "\u6642\u9593\u70B8\u88C2\u5F3E"
       objectReference: {fileID: 0}

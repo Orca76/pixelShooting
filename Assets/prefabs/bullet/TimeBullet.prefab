@@ -107,6 +107,8 @@ MonoBehaviour:
   requiredMp: 5
   penetrate: 0
   damageText: {fileID: 7334577376043158312, guid: 8af27fa58acdc3a49a273afadda150aa, type: 3}
+  multiHit: 0
+  interval: 0
 --- !u!61 &3761531160089741565
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,8 +168,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f01b9ff3aa06a84ab76c72c54b18629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   LifeTime: 10
+  velocityChangeRate: 0
+  rotateSpeed: 1
+  homingSpeed: 10
 --- !u!114 &3908945422608192336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,5 +189,5 @@ MonoBehaviour:
   ShotPos:
   - {fileID: 2782085606632966114}
   ModuleType: 2
-  span: 1
+  span: 0.5
   BulletCharge: 1

@@ -10,7 +10,7 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D rig;
     Animator anim;
     PlayerBase sc;
-    GameObject GunSystem;
+   public GameObject GunSystem;
     void Start()
     {
         rig = gameObject.GetComponent<Rigidbody2D>();
@@ -23,6 +23,10 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GunSystem)
+        {
+            GunSystem = GameObject.Find("GunSystem");
+        }
         if (GunSystem.GetComponent<GunManager>().EditOn != true)//ï“èWíÜÇ≈Ç»Ç¢
         {
             float x = Input.GetAxisRaw("Horizontal");

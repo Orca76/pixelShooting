@@ -11,7 +11,8 @@ public class BulletMove : MonoBehaviour
     float t;
     float firstSpeed;
     BulletComponent script;
-
+    public float rotateSpeed=1;
+    public float homingSpeed = 10;
     float expandValue;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class BulletMove : MonoBehaviour
         if (gameObject.GetComponent<BulletBase>().RelatedComponent)
         {
             script = gameObject.GetComponent<BulletBase>().RelatedComponent.GetComponent<BulletComponent>();
-            Debug.Log("script=" + script);
+           // Debug.Log("script=" + script);
             LifeTime = script.lifeTime;
             if (script.Adjust == 3)//速度上昇
             {
@@ -48,11 +49,7 @@ public class BulletMove : MonoBehaviour
             }
             firstSpeed = speed;
         }
-       
-
         Destroy(gameObject, LifeTime);
-       
-        
     }
 
     // Update is called once per frame
@@ -66,7 +63,7 @@ public class BulletMove : MonoBehaviour
 
         if (script.Adjust == 4)//回転
         {
-            transform.Rotate(0, 0, 5);
+            transform.Rotate(0, 0, rotateSpeed);
         }else if (script.Adjust == 6)//ホーミング
         {
             if (GameObject.FindGameObjectsWithTag("enemy").Length > 0)
@@ -74,11 +71,19 @@ public class BulletMove : MonoBehaviour
                 GameObject target = ClosestComponent(GameObject.FindGameObjectsWithTag("enemy"));
                 // 対象物へのベクトルを算出
 
+                //// 対象物へのベクトルを算出
                 Vector3 toDirection = target.transform.position - transform.position;
-                // 対象物へ回転する
-                transform.rotation = Quaternion.FromToRotation(Vector3.up, toDirection);
+
+                // ベクトルから角度を計算
+                float angle = Mathf.Atan2(toDirection.y, toDirection.x) * Mathf.Rad2Deg;
+
+                // プレイヤーをゆっくりとターゲットの方向に向ける
+                Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, homingSpeed * Time.deltaTime*t);
+
             }
-        }else if (script.Adjust == 8)
+        }
+        else if (script.Adjust == 8)
         {
             expandValue += Time.deltaTime;
             gameObject.transform.localScale=new Vector3(expandValue*10, expandValue*10, 1);

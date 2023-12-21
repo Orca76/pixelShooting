@@ -491,14 +491,14 @@ public class GunManager : MonoBehaviour
             {
                 if (Players.GetComponent<PlayerBase>().MP[0] > 0)//–‚–@‚ğ•ú‚ÂMP‚ªc‚Á‚Ä‚¢‚éê‡
                 {
-                    Debug.Log("SHOT");
+                   // Debug.Log("SHOT");
                     GameObject FirstBullet = Instantiate(DataBase_Script.Bullets[Components0[0].GetComponent<BulletComponent>().Number]
                , Players.transform.position, turret.transform.rotation);
                     BulletBase Data = FirstBullet.GetComponent<BulletBase>();
                     Data.RelatedComponent = Components0[0];
                     Data.NextBullet = DataBase_Script.Bullets[Components0[0].GetComponent<BulletComponent>().NextBulletNumber];
 
-                    Debug.Log("Shot MPÁ”ï=" + DataBase_Script.Bullets[Components0[0].GetComponent<BulletComponent>().Number]);
+                   // Debug.Log("Shot MPÁ”ï=" + DataBase_Script.Bullets[Components0[0].GetComponent<BulletComponent>().Number]);
                     Players.GetComponent<PlayerBase>().MP[0] -= DataBase_Script.Components[Components0[0].GetComponent<BulletComponent>().Number].GetComponent<BulletComponent>().cost;
                 }
 
