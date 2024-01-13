@@ -18,7 +18,7 @@ public class BulletBase : MonoBehaviour
     GameObject damageCanvas;
 
 
-    public bool multiHit;
+   public bool multiHit;//“Å‚Ì—Ş
 
     float timer;
     public float interval;
@@ -82,6 +82,7 @@ public class BulletBase : MonoBehaviour
         {
             if (collision.CompareTag("enemy"))//“G‚É“–‚½‚Á‚½
             {
+                Debug.Log("“G‚ÉÚG “G–¼="+collision.name);
                 //ƒ_ƒ[ƒW•\‹L
                 GameObject DamageUI = Instantiate(damageText, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
                 DamageUI.transform.SetParent(damageCanvas.transform);

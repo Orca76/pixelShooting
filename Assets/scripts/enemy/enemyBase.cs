@@ -27,7 +27,9 @@ public class enemyBase : MonoBehaviour
     public float dropRate;
     public float itemDropRate = 10;
 
-    public bool minion = true;
+    public bool minion = true;//通常の雑魚か→通常攻撃を行うか 
+    public bool lockOn = true;//プレイヤーへのロックオンを行うか
+    public bool disappier = true;//死んだとき消えるか　ドローンの消去処理と被るため作成
     // Start is called before the first frame update
     void Start()
     {
@@ -65,12 +67,16 @@ public class enemyBase : MonoBehaviour
 
         hpGauge.value = hp / maxHp;
 
-        // 対象物へのベクトルを算出
-        Vector3 toDirection = player.transform.position - gameObject.transform.position;
-        // 対象物へ回転する
-        turret.transform.rotation = Quaternion.FromToRotation(Vector3.up, toDirection);
+        if (lockOn)
+        {
+            // 対象物へのベクトルを算出
+            Vector3 toDirection = player.transform.position - gameObject.transform.position;
+            // 対象物へ回転する
+            turret.transform.rotation = Quaternion.FromToRotation(Vector3.up, toDirection);
+        }
+       
 
-        if (hp <= 0)
+        if (hp <= 0&&disappier)
         {
             //ドロップの処理とか書くかも
             int goldDropNum = (dropMoney < 20) ? 0 : (dropMoney / 20);

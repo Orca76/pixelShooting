@@ -12,16 +12,12 @@ public class enemyBullet : MonoBehaviour
     Rigidbody2D rig;
 
     public float delay;
-    public bool normalShot = true;
+    public bool normalShot = true;//親オブジェクトが存在する場合は関係を切る　通常の弾丸としての挙動を
+
+    public bool specialBullet = false;//特殊弾丸　敵の攻撃を利用する場合→敵にダメージが通る
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DelayedStart()); // 待機処理を含むStartCoroutineを呼び出す
-    }
-
-    IEnumerator DelayedStart()
-    {
-        yield return new WaitForSeconds(delay); // delay秒待機
         Destroy(gameObject, lifetime); // lifetime秒後にGameObjectを破壊
         rig = GetComponent<Rigidbody2D>();
         if (normalShot)
@@ -31,8 +27,9 @@ public class enemyBullet : MonoBehaviour
                 gameObject.transform.parent = null;
             }
         }
-     
     }
+
+ 
 
 
     // Update is called once per frame
@@ -48,12 +45,27 @@ public class enemyBullet : MonoBehaviour
         }
         if (collision.CompareTag("Player"))//プレイヤーに接触した時にHPを減らす処理
         {
-            collision.gameObject.GetComponent<PlayerBase>().HP[collision.GetComponent<PlayerBase>().CharaIndex] -= Damage;
-            if (!penetrate)
+            if (!specialBullet)
             {
-                Destroy(gameObject);
+                collision.gameObject.GetComponent<PlayerBase>().HP[collision.GetComponent<PlayerBase>().CharaIndex] -= Damage;
+                if (!penetrate)
+                {
+                    Destroy(gameObject);
+                }
+
             }
 
+        }
+        if (collision.CompareTag("enemy"))
+        {
+            if (specialBullet)
+            {
+                collision.gameObject.GetComponent<enemyBase>().hp -= Damage;
+                //if (!penetrate)
+                //{
+                //    Destroy(gameObject);//貫通する弾丸であるため時間経過でのみ消滅
+                //}
+            }
         }
     }
 }

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BulletMove : MonoBehaviour
 {
-   public float speed;
-  public  float LifeTime;
+    public float speed;
+    public float LifeTime;
     Rigidbody2D rig;
-   public float velocityChangeRate = 0;
+    public float velocityChangeRate = 0;
     float t;
     float firstSpeed;
     BulletComponent script;
-    public float rotateSpeed=1;
+    public float rotateSpeed = 1;
     public float homingSpeed = 10;
     float expandValue;
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class BulletMove : MonoBehaviour
         if (gameObject.GetComponent<BulletBase>().RelatedComponent)
         {
             script = gameObject.GetComponent<BulletBase>().RelatedComponent.GetComponent<BulletComponent>();
-           // Debug.Log("script=" + script);
+            // Debug.Log("script=" + script);
             LifeTime = script.lifeTime;
             if (script.Adjust == 3)//速度上昇
             {
@@ -60,34 +60,38 @@ public class BulletMove : MonoBehaviour
         //Debug.Log("Speed=" + speed + " velocitychange=" + velocityChangeRate + " firstspeed=" + firstSpeed);
         speed = Mathf.Exp(t * velocityChangeRate) * firstSpeed;
         rig.velocity = transform.up * speed;
-
-        if (script.Adjust == 4)//回転
+        if (script)
         {
-            transform.Rotate(0, 0, rotateSpeed);
-        }else if (script.Adjust == 6)//ホーミング
-        {
-            if (GameObject.FindGameObjectsWithTag("enemy").Length > 0)
+            if (script.Adjust == 4)//回転
             {
-                GameObject target = ClosestComponent(GameObject.FindGameObjectsWithTag("enemy"));
-                // 対象物へのベクトルを算出
+                transform.Rotate(0, 0, rotateSpeed);
+            }
+            else if (script.Adjust == 6)//ホーミング
+            {
+                if (GameObject.FindGameObjectsWithTag("enemy").Length > 0)
+                {
+                    GameObject target = ClosestComponent(GameObject.FindGameObjectsWithTag("enemy"));
+                    // 対象物へのベクトルを算出
 
-                //// 対象物へのベクトルを算出
-                Vector3 toDirection = target.transform.position - transform.position;
+                    //// 対象物へのベクトルを算出
+                    Vector3 toDirection = target.transform.position - transform.position;
 
-                // ベクトルから角度を計算
-                float angle = Mathf.Atan2(toDirection.y, toDirection.x) * Mathf.Rad2Deg;
+                    // ベクトルから角度を計算
+                    float angle = Mathf.Atan2(toDirection.y, toDirection.x) * Mathf.Rad2Deg;
 
-                // プレイヤーをゆっくりとターゲットの方向に向ける
-                Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
-                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, homingSpeed * Time.deltaTime*t);
+                    // プレイヤーをゆっくりとターゲットの方向に向ける
+                    Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+                    transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, homingSpeed * Time.deltaTime * t);
 
+                }
+            }
+            else if (script.Adjust == 8)
+            {
+                expandValue += Time.deltaTime;
+                gameObject.transform.localScale = new Vector3(expandValue * 10, expandValue * 10, 1);
             }
         }
-        else if (script.Adjust == 8)
-        {
-            expandValue += Time.deltaTime;
-            gameObject.transform.localScale=new Vector3(expandValue*10, expandValue*10, 1);
-        }
+
 
 
 

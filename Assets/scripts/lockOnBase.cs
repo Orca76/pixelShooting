@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class lockOnBase : MonoBehaviour
 {
-    public bool playerShot;//プレイヤーなら0　敵なら1
+    public bool playerShot;
     public bool firstLockOn;
     public bool Homing;
     // Start is called before the first frame update

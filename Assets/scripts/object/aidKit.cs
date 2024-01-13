@@ -27,6 +27,9 @@ public class aidKit : MonoBehaviour
                 player.GetComponent<PlayerBase>().dynamicGuide.text = "";
 
 
+                PlayerBase pData = player.GetComponent<PlayerBase>();
+
+               
                 player.GetComponent<PlayerBase>().HP[player.GetComponent<PlayerBase>().CharaIndex] += HealValue;
 
 

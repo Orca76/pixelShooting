@@ -115,7 +115,7 @@ public class GunManager : MonoBehaviour
 
         for (int j = 0; j < 4; j++)
         {
-          //  Debug.Log(Players.GetComponent<PlayerBase>().existCopy[0] == null);
+          
 
             if (exist[j] == true)//プレイヤーは存在していて
             {
@@ -192,7 +192,7 @@ public class GunManager : MonoBehaviour
             while (true)
             {
 
-                //if (ActiveCharactorIndex == 0)//0番目のプレイヤー
+               
                 {
                     if (Components0[i] != null)//最初の項目が埋まっている
                     {

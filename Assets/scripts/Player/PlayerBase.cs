@@ -28,8 +28,8 @@ public class PlayerBase : MonoBehaviour
     public Slider HpGauge;
     public Slider MpGauge;
 
-   public int CharaIndex;
-   public GunManager gunSc;
+    public int CharaIndex;
+    public GunManager gunSc;
     SpriteRenderer rendere;
 
     public int money;
@@ -41,37 +41,40 @@ public class PlayerBase : MonoBehaviour
     public int currentFloor;
 
 
-
+    playerData levelSc;
     public GameObject[] existCopy;
+
     // Start is called before the first frame update
     void Start()
     {
-       // MaxHp = HP;
+        levelSc = gameObject.GetComponent<playerData>();
+        // MaxHp = HP;
         gunSc = GameObject.Find("GunSystem").GetComponent<GunManager>();
         rendere = gameObject.GetComponent<SpriteRenderer>();
+        //HP = MaxHp;
 
-    }
+        MaxHp[0] = MaxHp[0] * levelSc.ratio[levelSc.HpLevel - 1];
+        MaxMp[0] = MaxMp[0] * levelSc.ratio[levelSc.MpLevel - 1];
+        Speed[0] = Speed[0] * levelSc.ratioSpeed[levelSc.speedLevel - 1];
+        MpRegenerateSpeed[0] = MpRegenerateSpeed[0] * levelSc.ratio[levelSc.chargeLevel - 1];
 
-    int earliestIndex(GameObject[] array)
-    {//配列の中で一番早く出現するnullでない要素のインデックスを返す
-        int index = -1;
-        for (int i = 0; i < array.Length; i++)
+
+
+        for (int i = 0; i < HP.Count; i++)
         {
-            if (array[i] != null)
-            {
-                index = i;
-                break; // 一番早く出現した null を見つけたらループを終了
-            }
+            HP[i] = MaxHp[i];
+            MP[i] = MaxMp[i];
+            Debug.Log("HP初期化");
         }
-        return index;
 
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        
-        moneyText.text = "＄"+money.ToString();//所持金を表示
+
+        moneyText.text = "＄" + money.ToString();//所持金を表示
         if (!gunSc)
         {
             gunSc = GameObject.Find("GunSystem").GetComponent<GunManager>();
@@ -80,10 +83,18 @@ public class PlayerBase : MonoBehaviour
         HpGauge.value = HP[CharaIndex] / MaxHp[CharaIndex];//HPゲージの処理
         MpGauge.value = MP[CharaIndex] / MaxMp[CharaIndex];//Mpゲージの処理
         hpText.text = HP[CharaIndex].ToString() + "/" + MaxHp[CharaIndex].ToString();
-        mpText.text = Mathf.FloorToInt( MP[CharaIndex]).ToString() + "/" + MaxMp[CharaIndex].ToString();
+        mpText.text = Mathf.FloorToInt(MP[CharaIndex]).ToString() + "/" + MaxMp[CharaIndex].ToString();
 
-      
-        
+        for (int i = 0; i < HP.Count; i++)//過剰回復防止
+        {
+            if (HP[i] > MaxHp[i])
+            {
+                HP[i] = MaxHp[i];
+            }
+           
+
+
+        }
 
         rendere.sprite = charactorImage[CharaIndex];//スプライトを使用キャラに変更
 
@@ -95,8 +106,8 @@ public class PlayerBase : MonoBehaviour
                 MP[i] += MpRegenerateSpeed[i];//Mp自動回復
             }
         }
-           
-        
+
+
 
         if (HP[CharaIndex] <= 0)//死亡時
         {
@@ -117,9 +128,9 @@ public class PlayerBase : MonoBehaviour
                 gunSc.PlayerExistObj[pastPlayerIndex] = null;
                 Destroy(delete);
 
-               
-               
-                
+
+
+
             }
             else
             {
@@ -128,7 +139,7 @@ public class PlayerBase : MonoBehaviour
         }
 
 
-        
+
     }
 
 }
