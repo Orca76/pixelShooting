@@ -38,8 +38,10 @@ public class PlayerBase : MonoBehaviour
     public TextMeshProUGUI hpText;
     public TextMeshProUGUI mpText;
     public TextMeshProUGUI dynamicGuide;
-    public int currentFloor;
+    public TextMeshProUGUI floorText;//現在の階層のテキスト　開始時にフェードアウト
+    public int currentFloor;//現在の階層
 
+    public float floorFadeoutSpeed;//階層テキストのフェードアウト速度
 
     playerData levelSc;
     public GameObject[] existCopy;
@@ -58,7 +60,7 @@ public class PlayerBase : MonoBehaviour
         Speed[0] = Speed[0] * levelSc.ratioSpeed[levelSc.speedLevel - 1];
         MpRegenerateSpeed[0] = MpRegenerateSpeed[0] * levelSc.ratio[levelSc.chargeLevel - 1];
 
-
+        floorText.text = "1-" + currentFloor;
 
         for (int i = 0; i < HP.Count; i++)
         {
@@ -73,6 +75,11 @@ public class PlayerBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        floorText.alpha -= floorFadeoutSpeed * Time.deltaTime;
+        if (floorText.alpha < 0)
+        {
+            Destroy(floorText);
+        }
 
         moneyText.text = "＄" + money.ToString();//所持金を表示
         if (!gunSc)
