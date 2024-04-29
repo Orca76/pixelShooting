@@ -41,11 +41,11 @@ public class BulletMove : MonoBehaviour
             }
             else if (script.Adjust == 9)//Œ¸‘¬
             {
-                velocityChangeRate = 1;
+                velocityChangeRate = -3;
             }
             else if (script.Adjust == 10)//‰Á‘¬
             {
-                velocityChangeRate = -1;
+                velocityChangeRate = 3;
             }
             firstSpeed = speed;
         }

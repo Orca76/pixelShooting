@@ -75,5 +75,9 @@ PrefabInstance:
       propertyPath: adjustNumber
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8401742952645125864, guid: 6044863fc78c33f4c8274ac1721daf7b, type: 3}
+      propertyPath: m_LightCookieSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c021ff7f65c97c14f98fada6a2439a20, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6044863fc78c33f4c8274ac1721daf7b, type: 3}

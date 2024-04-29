@@ -71,5 +71,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CycleShot Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7581798232123621959, guid: 7f771288aa3f5344ebe44d11c599a401, type: 3}
+      propertyPath: m_LightCookieSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 21daa7b88f2403748a0e610874364379, type: 3}
+    m_RemovedComponents:
+    - {fileID: 6378290552849350703, guid: 7f771288aa3f5344ebe44d11c599a401, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7f771288aa3f5344ebe44d11c599a401, type: 3}

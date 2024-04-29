@@ -11,7 +11,7 @@ public class bossBullet : MonoBehaviour
     LineRenderer line;
     Vector3 firstPos;
     Vector3 targetPos;
-    public float offset=0.1f;
+    public float offset;
     Vector3 destination;
 
     // Start is called before the first frame update

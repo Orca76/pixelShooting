@@ -10,7 +10,7 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D rig;
     Animator anim;
     PlayerBase sc;
-   public GameObject GunSystem;
+    public GameObject GunSystem;
     void Start()
     {
         rig = gameObject.GetComponent<Rigidbody2D>();
@@ -23,27 +23,41 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GunSystem)
+        if (!sc.isGameOver)//ゲームオーバーでない
         {
-            GunSystem = GameObject.Find("GunSystem");
-        }
-        if (GunSystem.GetComponent<GunManager>().EditOn != true)//編集中でない
-        {
-            float x = Input.GetAxisRaw("Horizontal");
-            float y = Input.GetAxisRaw("Vertical");
-
-            rig.velocity = new Vector3(x, y, 0).normalized * speed;
-            anim.runtimeAnimatorController = sc.walkAnim[sc.CharaIndex];
-            if (rig.velocity != Vector2.zero)//移動中
+            if (!GunSystem)
             {
-                Debug.Log("INDEX=" + sc.CharaIndex);
-                //anim.runtimeAnimatorController = sc.walkAnim[sc.CharaIndex];
-                anim.speed = 0.75f;
+                GunSystem = GameObject.Find("GunSystem");
             }
-            else//停止
+            if (GunSystem.GetComponent<GunManager>().EditOn != true)//編集中でない
             {
+                float x = Input.GetAxisRaw("Horizontal");
+                float y = Input.GetAxisRaw("Vertical");
+
+                rig.velocity = new Vector3(x, y, 0).normalized * speed;
+                anim.runtimeAnimatorController = sc.walkAnim[sc.CharaIndex];
+                if (rig.velocity != Vector2.zero)//移動中
+                {
+                   // Debug.Log("INDEX=" + sc.CharaIndex);
+                    //anim.runtimeAnimatorController = sc.walkAnim[sc.CharaIndex];
+                    anim.speed = 0.75f;
+                }
+                else//停止
+                {
+                    anim.speed = 0;
+                }
+            }
+            else
+            {
+                rig.velocity = new Vector3(0, 0, 0).normalized * speed;
                 anim.speed = 0;
             }
+
+        }
+        else
+        {
+            rig.velocity = new Vector3(0, 0, 0).normalized * speed;
+            anim.speed = 0;
         }
 
 

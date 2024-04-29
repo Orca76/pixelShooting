@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1061982722039924482, guid: d1110a40e55a432419f616771e4efc53, type: 3}
+      propertyPath: m_LightCookieSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f6bf5b765313da64d98c430a00da9f95, type: 3}
     - target: {fileID: 3463544366881883856, guid: d1110a40e55a432419f616771e4efc53, type: 3}
       propertyPath: m_Name
       value: CutterBulletCompo Variant

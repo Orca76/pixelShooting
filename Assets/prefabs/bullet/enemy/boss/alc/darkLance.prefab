@@ -59,6 +59,7 @@ MonoBehaviour:
   lifetime: 3
   delay: 0
   normalShot: 0
+  specialBullet: 0
 --- !u!50 &7431221709116184548
 Rigidbody2D:
   serializedVersion: 4
@@ -87,6 +88,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 739411625223014329}
     m_Modifications:
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: delay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: lifetime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351101483637053440, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: offset
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8351101483637053464, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
       propertyPath: m_Name
       value: lance (4)
@@ -149,6 +162,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 739411625223014329}
     m_Modifications:
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: delay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: lifetime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351101483637053440, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: offset
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8351101483637053464, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
       propertyPath: m_Name
       value: lance (3)
@@ -211,6 +236,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 739411625223014329}
     m_Modifications:
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: delay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: lifetime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351101483637053440, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: offset
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8351101483637053464, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
       propertyPath: m_Name
       value: lance (6)
@@ -273,6 +310,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 739411625223014329}
     m_Modifications:
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: delay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: lifetime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351101483637053440, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: offset
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8351101483637053464, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
       propertyPath: m_Name
       value: lance (1)
@@ -335,6 +384,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 739411625223014329}
     m_Modifications:
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: delay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: lifetime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351101483637053440, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: offset
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8351101483637053464, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
       propertyPath: m_Name
       value: lance (7)
@@ -397,6 +458,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 739411625223014329}
     m_Modifications:
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: delay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: lifetime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351101483637053440, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: offset
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8351101483637053464, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
       propertyPath: m_Name
       value: lance (2)
@@ -459,6 +532,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 739411625223014329}
     m_Modifications:
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: delay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: lifetime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351101483637053440, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: offset
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8351101483637053464, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
       propertyPath: m_Name
       value: lance (5)
@@ -521,6 +606,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 739411625223014329}
     m_Modifications:
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: delay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7089125865648884238, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: lifetime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8351101483637053440, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
+      propertyPath: offset
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8351101483637053464, guid: b890aa2a0d4a38145860f2191a1a1eb3, type: 3}
       propertyPath: m_Name
       value: lance

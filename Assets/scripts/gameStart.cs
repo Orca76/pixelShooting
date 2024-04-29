@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class gameStart : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    //public int istutorialClear;//チュートリアルをクリアしているか
     void Start()
     {
         

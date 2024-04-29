@@ -28,12 +28,12 @@ public class capturedChara : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         firstScale = gameObject.transform.localScale.x;
-        levelData = player.GetComponent<playerData>();
+       // levelData = player.GetComponent<playerData>();
 
-        MaxHp = MaxHp * levelData.ratio[levelData.HpLevel - 1];
-        MaxMp = MaxMp * levelData.ratio[levelData.MpLevel - 1];
-        Speed = Speed * levelData.ratioSpeed[levelData.speedLevel - 1];
-        MpRegenerateSpeed = MpRegenerateSpeed * levelData.ratio[levelData.chargeLevel - 1];
+        //MaxHp = MaxHp * levelData.ratio[levelData.HpLevel - 1];
+        //MaxMp = MaxMp * levelData.ratio[levelData.MpLevel - 1];
+        //Speed = Speed * levelData.ratioSpeed[levelData.speedLevel - 1];
+        //MpRegenerateSpeed = MpRegenerateSpeed * levelData.ratio[levelData.chargeLevel - 1];
         HP = MaxHp;
         MP = MaxMp;
     }
@@ -64,59 +64,63 @@ public class capturedChara : MonoBehaviour
             gameObject.transform.localScale = new Vector3(firstScale, firstScale, 1);
         }
 
-        if (unlocked)
+        //  if (unlocked)
+
+        if (dist > Vector2.Distance(gameObject.transform.position, player.transform.position))//キャラの近くにいる
         {
-            if (dist > Vector2.Distance(gameObject.transform.position, player.transform.position))//キャラの近くにいる
+            player.GetComponent<PlayerBase>().dynamicGuide.text = "仲間にする:Space";
+            player.GetComponent<PlayerBase>().dynamicGuide.alpha = 1;
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                player.GetComponent<PlayerBase>().dynamicGuide.text = "タスケル:Space";
-                if (Input.GetKeyDown(KeyCode.Space))
+
+                Debug.Log("nakama");
+                //仲間になる
+                player.GetComponent<PlayerBase>().dynamicGuide.text = "";
+                GunManager Gunsc = GameObject.Find("GunSystem").GetComponent<GunManager>();
+                //キャラ数を増やす
+                // Gunsc.CharactorCount++;
+                if (Gunsc.PlayerExistObj.Count(item => item) < 4)//trueが4未満　→キャラスロットの空きがある
                 {
+                    PlayerBase Sc = player.GetComponent<PlayerBase>();
+                    int newCharaIndex = earliestIndex(Gunsc.exist);
+                    //データを追加
+                    Sc.HP[newCharaIndex] = (HP);
+                    Sc.MaxHp[newCharaIndex] = (MaxHp);
+                    Sc.MP[newCharaIndex] = (MP);
+                    Sc.MaxMp[newCharaIndex] = (MaxMp);
+                    Sc.MpRegenerateSpeed[newCharaIndex] = (MpRegenerateSpeed);
 
-                    Debug.Log("nakama");
-                    //仲間になる
-                    player.GetComponent<PlayerBase>().dynamicGuide.text = "";
-                    GunManager Gunsc = GameObject.Find("GunSystem").GetComponent<GunManager>();
-                    //キャラ数を増やす
-                    // Gunsc.CharactorCount++;
-                    if (Gunsc.PlayerExistObj.Count(item => item) < 4)//trueが4未満　→キャラスロットの空きがある
-                    {
-                        PlayerBase Sc = player.GetComponent<PlayerBase>();
-                        int newCharaIndex = earliestIndex(Gunsc.exist);
-                        //データを追加
-                        Sc.HP[newCharaIndex] = (HP);
-                        Sc.MaxHp[newCharaIndex] = (MaxHp);
-                        Sc.MP[newCharaIndex] = (MP);
-                        Sc.MaxMp[newCharaIndex] = (MaxMp);
-                        Sc.MpRegenerateSpeed[newCharaIndex] = (MpRegenerateSpeed);
-                        Sc.Speed[newCharaIndex] = (Speed);
-                        Sc.ShotSpeed[newCharaIndex] = (ShotSpeed);
-                        Sc.Capacity[newCharaIndex] = (Capacity);
-                        Sc.charactorImage[newCharaIndex] = (gameObject.GetComponent<SpriteRenderer>().sprite);
-                        Sc.walkAnim[newCharaIndex] = (walkAnim);
+                    Sc.ShotSpeed[newCharaIndex] = (ShotSpeed);
+                    Sc.Capacity[newCharaIndex] = (Capacity);
+                    Sc.charactorImage[newCharaIndex] = (gameObject.GetComponent<SpriteRenderer>().sprite);
+                    Sc.walkAnim[newCharaIndex] = (walkAnim);
 
-                        Gunsc.exist[newCharaIndex] = true;
-                        Destroy(gameObject);
-                    }
+                    Gunsc.exist[newCharaIndex] = true;
+                    Destroy(gameObject);
                 }
             }
         }
-        else
-        {
-            if (dist > Vector2.Distance(gameObject.transform.position, player.transform.position))//キャラの近くにいる
-            {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (player.GetComponent<PlayerBase>().money >= cost)//金が足りるか
-                    {
 
-                        player.GetComponent<PlayerBase>().money -= cost;//金を失う
-                        unlocked = true;
+        //  else
 
-                    }
-                }
-            }
+        //ここの処理は傭兵とか雇う感じでキャラ獲得に金が必要って構想の時の奴
 
-        }
+        //if (dist > Vector2.Distance(gameObject.transform.position, player.transform.position))//キャラの近くにいる
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Space))
+        //    {
+        //        if (player.GetComponent<PlayerBase>().money >= cost)//金が足りるか
+        //        {
+
+        //            player.GetComponent<PlayerBase>().money -= cost;//金を失う
+        //            unlocked = true;
+
+        //        }
+        //    }
+        //}
+
+
 
     }
 }

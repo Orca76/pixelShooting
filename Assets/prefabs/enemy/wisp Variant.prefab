@@ -24,6 +24,14 @@ PrefabInstance:
       value: wisp Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7178204211718667546, guid: 9743083a903f7714aa0960d2690b58d0, type: 3}
+      propertyPath: hp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178204211718667546, guid: 9743083a903f7714aa0960d2690b58d0, type: 3}
+      propertyPath: maxHp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7178204211718667546, guid: 9743083a903f7714aa0960d2690b58d0, type: 3}
       propertyPath: bullet
       value: 
       objectReference: {fileID: 4756673599327674709, guid: 745ae82bfd6a6b9468f086b911789427, type: 3}

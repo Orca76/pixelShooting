@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4613849184948265014, guid: 17a016561481c664987e808861a62e17, type: 3}
       propertyPath: m_Name
-      value: chara_skyblue
+      value: chara_skyblue Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4613849184948265015, guid: 17a016561481c664987e808861a62e17, type: 3}
       propertyPath: HP
@@ -83,5 +83,9 @@ PrefabInstance:
       propertyPath: walkAnim
       value: 
       objectReference: {fileID: 9100000, guid: 1ec22fb28ac2f0e46a897b701adec205, type: 2}
+    - target: {fileID: 4613849184948265015, guid: 17a016561481c664987e808861a62e17, type: 3}
+      propertyPath: MpRegenerateSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a016561481c664987e808861a62e17, type: 3}

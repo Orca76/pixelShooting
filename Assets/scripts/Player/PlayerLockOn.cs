@@ -22,10 +22,10 @@ public class PlayerLockOn : MonoBehaviour
         // ‘ÎÛ•¨‚Ö‰ñ“]‚·‚é
         transform.rotation = Quaternion.FromToRotation(Vector3.up, toDirection);
 
-        if (toDirection.x >= 0)
+        if (toDirection.x > 0.05f)
         {
             Player.transform.localScale = new Vector3(-PlayerScale, PlayerScale, 1) ;
-        }else if (toDirection.x < 0)
+        }else if (toDirection.x < -0.05f)
         {
             Player.transform.localScale = new Vector3(PlayerScale, PlayerScale, 1);
         }

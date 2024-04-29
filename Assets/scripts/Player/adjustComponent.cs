@@ -9,6 +9,7 @@ public class adjustComponent : MonoBehaviour
     public bool unUsed = true;//使われていない
 
     float dist;
+   public GameObject target;
     void Start()
     {
 
@@ -17,24 +18,47 @@ public class adjustComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject target = ClosestComponent(GameObject.FindGameObjectsWithTag("Component"));
-        dist = Vector2.Distance(gameObject.transform.position, target.transform.position);
-        if (dist < 0.05f)
+       
+        
+        dist = Vector2.Distance(gameObject.transform.position, ClosestComponent(GameObject.FindGameObjectsWithTag("Component")).transform.position);
+        if (dist < 0.05f)//接触した時
         {
-            if (unUsed)
+            if (unUsed)//まだこの調整パーツはどのアイテムにもくっついていない
             {
-                BulletComponent sc = target.GetComponent<BulletComponent>();
-                if (sc.componentType == 0)
+                if (!target)
+                {
+                    target = ClosestComponent(GameObject.FindGameObjectsWithTag("Component"));
+                }
+                BulletComponent sc = target.GetComponent<BulletComponent>();//接触したコンポーネントの情報を取得
+                if (sc.componentType == 0)//通常の弾丸である（赤いパーツではない）
                 {
                     if (sc.Adjust == 0)//まだ何もくっついてない
                     {
+                        Debug.Log("何もくっついていない");
                         sc.Adjust = adjustNumber;
                         gameObject.transform.position = target.gameObject.transform.position + new Vector3(0, -0.08f, 0);
                         gameObject.transform.parent = target.transform;
+                        unUsed = false;
                     }
                    
                 }
-                unUsed = false;
+               
+            }
+        }
+        else
+        {
+            if (unUsed)
+            {
+                target = null;
+            }
+           // 
+        }
+
+        if (!unUsed)//変な位置でくっついてしまった時の修正
+        {
+            if (gameObject.transform.position != target.gameObject.transform.position + new Vector3(0, -0.08f, 0))
+            {
+                gameObject.transform.position = target.gameObject.transform.position + new Vector3(0, -0.08f, 0);
             }
         }
     }

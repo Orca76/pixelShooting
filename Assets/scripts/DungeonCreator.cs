@@ -36,8 +36,10 @@ public class DungeonCreator : MonoBehaviour
     {
 
         GameObject player = GameObject.FindWithTag("Player");
-        if (player.GetComponent<PlayerBase>().currentFloor > 5)
+        roomCount = (player.GetComponent<PlayerBase>().currentFloor+1) * 4;
+        if (player.GetComponent<PlayerBase>().currentFloor > 3)
         {
+            Debug.Log("É{ÉXïîâÆÇê∂ê¨");
             Instantiate(BossRoom, transform.position, transform.rotation);
         }
         else
@@ -45,6 +47,8 @@ public class DungeonCreator : MonoBehaviour
             CreateDungeon();
         }
        
+
+
 
     }
 

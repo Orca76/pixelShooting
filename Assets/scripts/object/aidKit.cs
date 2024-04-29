@@ -20,6 +20,7 @@ public class aidKit : MonoBehaviour
         if (dist > Vector2.Distance(gameObject.transform.position, player.transform.position))//アイテムの近くにいる
         {
             player.GetComponent<PlayerBase>().dynamicGuide.text = "ツカウ:Space";
+            player.GetComponent<PlayerBase>().dynamicGuide.alpha = 1;
             if (Input.GetKeyDown(KeyCode.Space))
             {
 

@@ -55,15 +55,15 @@ public class ShotDirectionManager : MonoBehaviour
                        
                         GameObject FiredProjectile = Instantiate(Bullet, ShotPos[i].transform.position, ShotPos[i].transform.rotation);//撃った弾丸をオブジェクトとして保持
                         BulletBase DataNewObj = FiredProjectile.GetComponent<BulletBase>();
-                        Debug.Log("1");
+                       // Debug.Log("1");
                         if (DataNewObj.RelatedComponent == null)
                         {
-                            Debug.Log("nnnn??" + FiredProjectile.name);
+                           // Debug.Log("nnnn??" + FiredProjectile.name);
                         }
                        
                         if (Player.GetComponent<PlayerBase>().Capacity[Index] - 1 > SkillIndex)//最後の弾丸には次の弾丸を設定しない
                         {
-                            Debug.Log("2");
+                           // Debug.Log("2");
                             if (gameObject.GetComponent<BulletBase>().RelatedComponent.GetComponent<BulletComponent>().NextComponent == true)//続く弾丸が存在する
                             {
 

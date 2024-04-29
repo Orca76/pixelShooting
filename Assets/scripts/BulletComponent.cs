@@ -15,7 +15,7 @@ public class BulletComponent : MonoBehaviour
     public int PlayerIndex;//何番目のプレイヤーの放った攻撃か 0,1,2,3
 
     public string bulletName;
-    public float cost;
+    public float cost;//消費魔力
     public float damage;
     public string explain;
     public float speed;
@@ -37,39 +37,61 @@ public class BulletComponent : MonoBehaviour
 
     public int componentType = 0;//0弾丸1調整 2 コネクトパーツ
 
+    public int itemPrice;//価格
+
+    SpriteRenderer renderer;
 
     void Start()
     {
         Player = GameObject.FindWithTag("Player");
         gunSystem = GameObject.Find("GunSystem");
         gunSc = gunSystem.GetComponent<GunManager>();
+        renderer = gameObject.GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!Picked)
+        
+       
+
+        if (!Picked)//まだ拾われていない
         {
+            renderer.sortingOrder = 2;//edit画面で見えないように
             if (collisionDistance > Vector3.Distance(gameObject.transform.position, Player.transform.position))//プレイヤーの近く
             {
-                Player.GetComponent<PlayerBase>().dynamicGuide.text = "ヒロウ:Space";
-                if (Input.GetKeyDown(KeyCode.Space))//拾う
+                Player.GetComponent<PlayerBase>().dynamicGuide.text = "拾う:Space";
+                Player.GetComponent<PlayerBase>().dynamicGuide.alpha = 1;//実体化
+                if (Input.GetKeyDown(KeyCode.Space))//ひろう
                 {
-                    Player.GetComponent<PlayerBase>().dynamicGuide.text = "";
-                    gameObject.transform.parent = GameObject.FindWithTag("backGround").transform;//バックグラウンドの子オブジェクトに指定
-                    if (componentType == 0)
+                    //ひろえる
+
+                    if (Player.GetComponent<PlayerBase>().money >= itemPrice)//所持金足りてる
                     {
-                        gameObject.transform.position = transform.parent.position + new Vector3(0, 0, -0.1f);//親オブジェクトの位置に移動
-                    }
-                    else
-                    {
-                        gameObject.transform.position = transform.parent.position + new Vector3(-0.5f, 0, -0.1f);//親オブジェクトの位置に移動
-                    }
+                        Player.GetComponent<PlayerBase>().dynamicGuide.text = "";
+                        gameObject.transform.parent = GameObject.FindWithTag("backGround").transform;//バックグラウンドの子オブジェクトに指定
+                        if (componentType == 0)
+                        {
+                            gameObject.transform.position = transform.parent.position + new Vector3(0, 0, -0.1f);//親オブジェクトの位置に移動
+                        }
+                        else
+                        {
+                            gameObject.transform.position = transform.parent.position + new Vector3(-0.5f, 0, -0.1f);//親オブジェクトの位置に移動
+                        }
 
 
-                    Picked = true;
+                        Picked = true;
+                        Player.GetComponent<PlayerBase>().money -= itemPrice;//金払う
+                    }
+                    
                 }
             }
+
+        }
+        else//拾われた
+        {
+            renderer.sortingOrder = 7;
         }
 
 
@@ -107,19 +129,22 @@ public class BulletComponent : MonoBehaviour
         }
         if (gunSc.EditOn)//ドラッグ移動はエディット中のみ
         {
+            if (Picked)//既に取得したもののみ
+            {
+                transform.position = GetMouseWorldPos();
 
-            transform.position = GetMouseWorldPos();
 
+                bulletNameTx = GameObject.Find("name").GetComponent<TextMeshProUGUI>();
+                bulletCostTx = GameObject.Find("cost").GetComponent<TextMeshProUGUI>();
+                bulletDamageTx = GameObject.Find("damage").GetComponent<TextMeshProUGUI>();
+                bulletExplainTx = GameObject.Find("explain").GetComponent<TextMeshProUGUI>();
 
-            bulletNameTx = GameObject.Find("name").GetComponent<TextMeshProUGUI>();
-            bulletCostTx = GameObject.Find("cost").GetComponent<TextMeshProUGUI>();
-            bulletDamageTx = GameObject.Find("damage").GetComponent<TextMeshProUGUI>();
-            bulletExplainTx = GameObject.Find("explain").GetComponent<TextMeshProUGUI>();
-
-            bulletNameTx.text = bulletName;
-            bulletCostTx.text = "MP:" + cost.ToString();
-            bulletDamageTx.text = "Damage:" + damage.ToString();
-            bulletExplainTx.text = explain;
+                bulletNameTx.text = bulletName;
+                bulletCostTx.text = "MP:" + cost.ToString();
+                bulletDamageTx.text = "Damage:" + damage.ToString();
+                bulletExplainTx.text = explain;
+            }
+           
 
         }
 

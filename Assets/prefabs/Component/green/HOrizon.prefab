@@ -71,5 +71,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 8caba261dcaeb5740b5bc5778c1d3ba5, type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 2030090558529787066, guid: 09f206ffaed386946972ac6c8386d0d6, type: 3}
+      propertyPath: m_LightCookieSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8caba261dcaeb5740b5bc5778c1d3ba5, type: 3}
+    m_RemovedComponents:
+    - {fileID: 3287518600641107666, guid: 09f206ffaed386946972ac6c8386d0d6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 09f206ffaed386946972ac6c8386d0d6, type: 3}

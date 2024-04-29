@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8157636078127635886, guid: bd51fa15ed80c144f904e3a3f89eee90, type: 3}
+      propertyPath: m_LightCookieSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3ad9b56f721ec0444b120fc5872db5d2, type: 3}
     - target: {fileID: 9128796917801835522, guid: bd51fa15ed80c144f904e3a3f89eee90, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -71,5 +75,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SideShot Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4649534431609774022, guid: bd51fa15ed80c144f904e3a3f89eee90, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bd51fa15ed80c144f904e3a3f89eee90, type: 3}

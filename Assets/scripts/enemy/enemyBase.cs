@@ -30,6 +30,10 @@ public class enemyBase : MonoBehaviour
     public bool minion = true;//通常の雑魚か→通常攻撃を行うか 
     public bool lockOn = true;//プレイヤーへのロックオンを行うか
     public bool disappier = true;//死んだとき消えるか　ドローンの消去処理と被るため作成
+
+    public GameObject HpBar;//反転処理用
+
+    public GameObject ClearCanvas;//ボスドロップみたいなもん クリア表示
     // Start is called before the first frame update
     void Start()
     {
@@ -45,9 +49,15 @@ public class enemyBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
+       
+
         t += Time.deltaTime;
         if (minion)
         {
+            HpBar.transform.localScale = new Vector3(Mathf.Abs(HpBar.transform.localScale.x) *
+           Mathf.Sign(gameObject.transform.localScale.x), HpBar.transform.localScale.y, HpBar.transform.localScale.z);//HPゲージ反転処理
             if (t > shotSpan)
             {
                 Instantiate(bullet, transform.position, turret.transform.rotation);
@@ -112,6 +122,10 @@ public class enemyBase : MonoBehaviour
             {
                 GameObject[] s = GameObject.Find("GunSystem").GetComponent<DataBase>().items;
                 Instantiate(s[Random.Range(0, s.Length)], gameObject.transform.position, gameObject.transform.rotation);
+            }
+            if (!minion)//ボス死亡時
+            {
+                Instantiate(ClearCanvas);//クリア演出
             }
             Destroy(gameObject);
         }

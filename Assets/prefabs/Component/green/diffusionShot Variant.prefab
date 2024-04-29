@@ -71,5 +71,9 @@ PrefabInstance:
       propertyPath: bulletName
       value: "\u62E1\u6563\u5F3E"
       objectReference: {fileID: 0}
+    - target: {fileID: 1858177384895935821, guid: 15c7c862e63bcf74bb7b5dbc7b99f479, type: 3}
+      propertyPath: m_LightCookieSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bfb3d9ec23354224c973fc2526999ea1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15c7c862e63bcf74bb7b5dbc7b99f479, type: 3}

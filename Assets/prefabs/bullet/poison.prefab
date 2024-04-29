@@ -132,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
 --- !u!50 &8052124445024992005
 Rigidbody2D:
@@ -170,3 +170,5 @@ MonoBehaviour:
   speed: 0
   LifeTime: 5
   velocityChangeRate: 0
+  rotateSpeed: 1
+  homingSpeed: 10

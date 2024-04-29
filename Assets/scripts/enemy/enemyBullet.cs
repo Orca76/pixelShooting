@@ -14,6 +14,7 @@ public class enemyBullet : MonoBehaviour
     public float delay;
     public bool normalShot = true;//eƒIƒuƒWƒFƒNƒg‚ª‘¶Ý‚·‚éê‡‚ÍŠÖŒW‚ðØ‚é@’Êí‚Ì’eŠÛ‚Æ‚µ‚Ä‚Ì‹““®‚ð
 
+    float t;
     public bool specialBullet = false;//“ÁŽê’eŠÛ@“G‚ÌUŒ‚‚ð—˜—p‚·‚éê‡¨“G‚Éƒ_ƒ[ƒW‚ª’Ê‚é
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,16 @@ public class enemyBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rig.velocity = transform.up * speed;
+      //  t += Time.deltaTime;
+        if (delay > 0)
+        {
+            delay -= Time.deltaTime;
+        }
+        if (delay <= 0)
+        {
+            rig.velocity = transform.up * speed;
+        }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

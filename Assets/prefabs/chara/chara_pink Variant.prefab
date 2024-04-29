@@ -31,9 +31,13 @@ PrefabInstance:
       propertyPath: walkAnim
       value: 
       objectReference: {fileID: 9100000, guid: 882eb38f9b6d42a4ca0d23ac88a9f324, type: 2}
+    - target: {fileID: 88015985788307856, guid: b41344533ab35e844b904520077e07d2, type: 3}
+      propertyPath: MpRegenerateSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 88015985788307857, guid: b41344533ab35e844b904520077e07d2, type: 3}
       propertyPath: m_Name
-      value: chara_pink
+      value: chara_pink Variant
       objectReference: {fileID: 0}
     - target: {fileID: 88015985788307861, guid: b41344533ab35e844b904520077e07d2, type: 3}
       propertyPath: m_RootOrder
