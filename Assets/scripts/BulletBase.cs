@@ -22,6 +22,9 @@ public class BulletBase : MonoBehaviour
 
     float timer;
     public float interval;
+    public GameObject hitParticle;
+
+    public GameObject particle;//パーティ来る
     void Start()
     {
         if (RelatedComponent)
@@ -76,6 +79,10 @@ public class BulletBase : MonoBehaviour
     {
         if (collision.CompareTag("Block"))//ブロックに当たった時
         {
+            if (particle)
+            {
+                particle.transform.parent = null;
+            }
             Destroy(gameObject);
         }
         if (!multiHit)
@@ -93,8 +100,21 @@ public class BulletBase : MonoBehaviour
                 //
 
                 collision.gameObject.GetComponent<enemyBase>().hp -= Damage;//敵のhpを減らす
+
+
+                //パーティクル処理
+                if(hitParticle != null)
+                {
+                    Instantiate(hitParticle, transform.position, transform.rotation);
+                }
+              
                 if (!penetrate)//貫通しない場合
                 {
+                    if (particle)
+                    {
+                        particle.transform.parent = null;
+                    }
+                
                     Destroy(gameObject);
                 }
 
@@ -103,7 +123,7 @@ public class BulletBase : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 if (!penetrate)
-                {
+                {particle.transform.parent = null;
                     Destroy(gameObject);
                 }
 

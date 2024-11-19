@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: $40
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5a4f9386ccdd2f84c918ed211700be53, type: 2}
-  m_sharedMaterial: {fileID: 5525174892541033686, guid: 5a4f9386ccdd2f84c918ed211700be53, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cd5baec2a9ac6b94880f4a8c10b87479, type: 2}
+  m_sharedMaterial: {fileID: -8311792809256214325, guid: cd5baec2a9ac6b94880f4a8c10b87479, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -210,7 +210,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4f2a289332b0a3c46b1233ed57c4b62d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

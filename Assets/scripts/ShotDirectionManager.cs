@@ -116,7 +116,10 @@ public class ShotDirectionManager : MonoBehaviour
                             }
 
                         }
-                        Cost = DataNewObj.RelatedComponent.GetComponent<BulletComponent>().cost;
+                        if (DataNewObj.RelatedComponent)
+                        {
+                            Cost = DataNewObj.RelatedComponent.GetComponent<BulletComponent>().cost;
+                        }
                         Player.GetComponent<PlayerBase>().MP[Player.GetComponent<PlayerBase>().CharaIndex] -= Cost;
                         Destroy(gameObject);
                     }
@@ -196,7 +199,11 @@ public class ShotDirectionManager : MonoBehaviour
                             }
 
                         }
-                        Cost = DataNewObj.RelatedComponent.GetComponent<BulletComponent>().cost;
+                        if (DataNewObj.RelatedComponent)
+                        {
+                            Cost = DataNewObj.RelatedComponent.GetComponent<BulletComponent>().cost;
+                        }
+                      
                         BulletCharge--;
 
                         Player.GetComponent<PlayerBase>().MP[Player.GetComponent<PlayerBase>().CharaIndex] -= Cost;

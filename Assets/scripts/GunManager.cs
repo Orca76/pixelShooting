@@ -152,7 +152,7 @@ public class GunManager : MonoBehaviour
                         spriteSc.sortingOrder = 6;//表示順の調整
                         spriteSc.transform.localScale = new Vector3(-0.5f, 0.5f, 1);
                         //キャラ画像の位置調整
-                        spriteSc.transform.position = new Vector3(-0.9f + ad, 0.3f - 0.2f * (createNumber), 0) + EditBackGround.transform.position;
+                        spriteSc.transform.position = new Vector3(-0.9f + ad, 0.2f - 0.18f * (createNumber), 0) + EditBackGround.transform.position;
 
                         //一連のオブジェクトを全てとあるオブジェクトの子オブジェクトにしておく
                         GameObject temporaryParent = new GameObject();
@@ -161,7 +161,7 @@ public class GunManager : MonoBehaviour
 
                         for (int i = 0; i < SkillNum; i++)
                         {
-                            GameObject Slot = Instantiate(EmptySlot, new Vector3(-0.7f + 0.08f * i, 0.3f - 0.2f * (createNumber), 0) + EditBackGround.transform.position, transform.rotation);
+                            GameObject Slot = Instantiate(EmptySlot, new Vector3(-0.7f + 0.08f * i, 0.2f - 0.18f * (createNumber), 0) + EditBackGround.transform.position, transform.rotation);
                             //位置修正します+0.1
                             Slot.transform.parent = temporaryParent.transform;
                             Slot.GetComponent<SkillSlot>().SkillIndex = i;

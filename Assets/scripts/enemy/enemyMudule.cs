@@ -29,9 +29,18 @@ public class enemyMudule : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (directShot)
         {
-            gameObject.transform.position = enemy.transform.position;
+            if (enemy)
+            {
+                gameObject.transform.position = enemy.transform.position;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+          
         }
         t_interval += Time.deltaTime;
         if (t_interval > interval)

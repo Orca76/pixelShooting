@@ -6,29 +6,38 @@ public class PlayerLockOn : MonoBehaviour
 {
     public GameObject Player;
     public float PlayerScale;
+    public GameObject system;
+    GunManager gunManager;
     // Start is called before the first frame update
-    
+
     void Start()
     {
-        
+        system = GameObject.Find("GunSystem");
+        gunManager = system.GetComponent<GunManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-     
-        // ‘ÎÛ•¨‚Ö‚ÌƒxƒNƒgƒ‹‚ðŽZo
-        Vector3 toDirection = GetMouseWorldPos() - transform.position;
-        // ‘ÎÛ•¨‚Ö‰ñ“]‚·‚é
-        transform.rotation = Quaternion.FromToRotation(Vector3.up, toDirection);
 
-        if (toDirection.x > 0.05f)
+
+        if (!gunManager.EditOn)
         {
-            Player.transform.localScale = new Vector3(-PlayerScale, PlayerScale, 1) ;
-        }else if (toDirection.x < -0.05f)
-        {
-            Player.transform.localScale = new Vector3(PlayerScale, PlayerScale, 1);
-        }
+            // ‘ÎÛ•¨‚Ö‚ÌƒxƒNƒgƒ‹‚ðŽZo
+            Vector3 toDirection = GetMouseWorldPos() - transform.position;
+            // ‘ÎÛ•¨‚Ö‰ñ“]‚·‚é
+            transform.rotation = Quaternion.FromToRotation(Vector3.up, toDirection);
+
+            if (toDirection.x > 0.05f)
+            {
+                Player.transform.localScale = new Vector3(-PlayerScale, PlayerScale, 1);
+            }
+            else if (toDirection.x < -0.05f)
+            {
+                Player.transform.localScale = new Vector3(PlayerScale, PlayerScale, 1);
+            }
+        } 
+          
     }
     private Vector3 GetMouseWorldPos()
     {
