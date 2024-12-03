@@ -23,6 +23,7 @@ public class PlayerLockOn : MonoBehaviour
 
         if (!gunManager.EditOn)
         {
+          //  ;/ Time.timeScale= 1.0f;
             // 対象物へのベクトルを算出
             Vector3 toDirection = GetMouseWorldPos() - transform.position;
             // 対象物へ回転する
@@ -36,7 +37,11 @@ public class PlayerLockOn : MonoBehaviour
             {
                 Player.transform.localScale = new Vector3(PlayerScale, PlayerScale, 1);
             }
-        } 
+        }
+        else
+        {
+           //Time.timeScale = 0;   
+        }
           
     }
     private Vector3 GetMouseWorldPos()

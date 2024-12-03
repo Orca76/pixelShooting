@@ -116,6 +116,8 @@ MonoBehaviour:
   collisionDistance: 0.075
   Adjust: 0
   componentType: 1
+  itemPrice: 0
+  attachment: 1
 --- !u!114 &5815180551336745783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   adjustNumber: 3
   unUsed: 1
+  target: {fileID: 0}
 --- !u!61 &5815180551336745781
 BoxCollider2D:
   m_ObjectHideFlags: 0

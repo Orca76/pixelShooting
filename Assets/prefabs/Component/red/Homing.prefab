@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Homing
       objectReference: {fileID: 0}
+    - target: {fileID: 5815180551336745776, guid: 6044863fc78c33f4c8274ac1721daf7b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5815180551336745777, guid: 6044863fc78c33f4c8274ac1721daf7b, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -22,6 +26,10 @@ PrefabInstance:
     - target: {fileID: 5815180551336745780, guid: 6044863fc78c33f4c8274ac1721daf7b, type: 3}
       propertyPath: explain
       value: "\u8FD1\u304F\u306E\u6575\u3092\u30DB\u30FC\u30DF\u30F3\u30B0\u3059\u308B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5815180551336745780, guid: 6044863fc78c33f4c8274ac1721daf7b, type: 3}
+      propertyPath: attachment
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5815180551336745780, guid: 6044863fc78c33f4c8274ac1721daf7b, type: 3}
       propertyPath: bulletName

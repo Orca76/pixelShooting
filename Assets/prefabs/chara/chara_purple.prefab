@@ -136,6 +136,7 @@ MonoBehaviour:
   walkAnim: {fileID: 9100000, guid: 2783019058c95b54ab579362cc623700, type: 2}
   unlocked: 0
   cost: 0
+  rodSprite: {fileID: 21300000, guid: 9af3d7708b5123b4f8606a61a771c296, type: 3}
 --- !u!114 &-8544462002716074159
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class PlayerBase : MonoBehaviour
     public List<float> ShotSpeed;
     public List<int> Capacity;//スキルスロットの数
     public List<Sprite> charactorImage;//キャラの画像
+    public List<Sprite> rodImage;//武器の画像
 
     public List<RuntimeAnimatorController> walkAnim;//歩行用アニメーション
 
@@ -27,7 +28,8 @@ public class PlayerBase : MonoBehaviour
 
     public int CharaIndex;
     public GunManager gunSc;
-    SpriteRenderer rendere;
+    SpriteRenderer rendere;//キャラ画像のレンダラー
+    SpriteRenderer rodRenderer;//武器
 
     public int money;
 
@@ -75,14 +77,17 @@ public class PlayerBase : MonoBehaviour
     Color currentColor;
     float newAlpha;
     public float fadeSpeed;
+    public GameObject weapon;//武器
+
     void Start()
     {
         // levelSc = gameObject.GetComponent<playerData>();
         // MaxHp = HP;
         gunSc = GameObject.Find("GunSystem").GetComponent<GunManager>();
         rendere = gameObject.GetComponent<SpriteRenderer>();
+        rodRenderer=weapon.GetComponent<SpriteRenderer>();
         //HP = MaxHp;
-
+        
         //   MaxHp[0] = MaxHp[0] * levelSc.ratio[levelSc.HpLevel - 1];
         //   MaxMp[0] = MaxMp[0] * levelSc.ratio[levelSc.MpLevel - 1];
 
@@ -167,6 +172,8 @@ public class PlayerBase : MonoBehaviour
         }
 
         rendere.sprite = charactorImage[CharaIndex];//スプライトを使用キャラに変更
+        rodRenderer.sprite = rodImage[CharaIndex];//武器を使用キャラに変更
+        
 
 
         for (int i = 0; i < 4; i++)

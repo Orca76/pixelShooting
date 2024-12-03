@@ -72,6 +72,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 804f8f9089938264cbf5212b0aa1c7d5, type: 2}
     - target: {fileID: 7217926687325171860, guid: 35b190d5b77e82843b5230866e1dfc04, type: 3}
+      propertyPath: rodSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b164ca5ec6dae8b4385891fb952023a5, type: 3}
+    - target: {fileID: 7217926687325171860, guid: 35b190d5b77e82843b5230866e1dfc04, type: 3}
       propertyPath: MpRegenerateSpeed
       value: 0.4
       objectReference: {fileID: 0}

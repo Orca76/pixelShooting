@@ -4954,6 +4954,8 @@ MonoBehaviour:
   cost: 0
   componentNumber: 0
   randomItem: 1
+  mimic: 0
+  mimicObj: {fileID: 618959641584014789, guid: c14de9d302981a64381e0654f871af38, type: 3}
 --- !u!114 &3876557880466122043
 MonoBehaviour:
   m_ObjectHideFlags: 0

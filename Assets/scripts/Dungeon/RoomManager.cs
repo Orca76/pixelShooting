@@ -41,10 +41,12 @@ public class RoomManager : MonoBehaviour
             if (GateOn[j] == true)
             {
                 colliders[j].isTrigger = true;
+              
             }
             else
             {
                 colliders[j].isTrigger = false;
+                Gates[j].gameObject.tag = "Block";
             }
         }
     }

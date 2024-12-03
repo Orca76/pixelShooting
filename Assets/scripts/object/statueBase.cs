@@ -13,6 +13,10 @@ public class statueBase : MonoBehaviour
 
     public int statusType;//上昇してくれるステータス 昇順にHP MP MP回復速度 
     public TextMeshProUGUI costText;
+
+    public int circleType = 0;//0ならステータス増強　1なら回復 2なら召喚
+    public GameObject secretBoss;
+    public int baseCost = 50;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +27,7 @@ public class statueBase : MonoBehaviour
     void Update()
     {
         costText.text = "$" + cost;
-        cost =(int)(50 * Mathf.Pow(2, prayNum));
+        cost =(int)(baseCost * Mathf.Pow(2, prayNum));
         if (collisionDistance > Vector3.Distance(gameObject.transform.position, Player.transform.position))//プレイヤーの近く
         {
             PlayerBase Pdata = Player.GetComponent<PlayerBase>();
@@ -33,24 +37,40 @@ public class statueBase : MonoBehaviour
             {
                 if (Pdata.money >= cost)//所持金足りてる
                 {
+
                     Pdata.dynamicGuide.text = "";
 
-                    switch (statusType)
+                    if(circleType == 0)
                     {
-                        case 0://HP石像
-                            Pdata.MaxHp[Pdata.CharaIndex] *= 1.4f;
-                            break;
-                        case 1://MP石像
-                            Pdata.MaxMp[Pdata.CharaIndex] *= 1.4f;
-                            break;
-                        case 2://MP自動回復石像
-                            Pdata.MpRegenerateSpeed[Pdata.CharaIndex] *= 1.4f;
-                            break;
+                        switch (statusType)
+                        {
+                            case 0://HP石像
+                                Pdata.MaxHp[Pdata.CharaIndex] *= 1.4f;
+                                break;
+                            case 1://MP石像
+                                Pdata.MaxMp[Pdata.CharaIndex] *= 1.4f;
+                                break;
+                            case 2://MP自動回復石像
+                                Pdata.MpRegenerateSpeed[Pdata.CharaIndex] *= 1.4f;
+                                break;
 
-                       
+
+                        }
+                        Player.GetComponent<PlayerBase>().money -= cost;//金払う
+                        prayNum++;
                     }
-                    Player.GetComponent<PlayerBase>().money -= cost;//金払う
-                    prayNum++;
+                    else if (circleType == 1)
+                    {
+                        Pdata.HP[Pdata.CharaIndex] += 30;
+                        Player.GetComponent<PlayerBase>().money -= cost;//金払う
+                    }
+                    else
+                    {
+                        Instantiate(secretBoss, transform.position, transform.rotation);
+                        Player.GetComponent<PlayerBase>().money -= cost;//金払う
+                        Destroy(gameObject);
+                    }
+                
 
                 }
                 

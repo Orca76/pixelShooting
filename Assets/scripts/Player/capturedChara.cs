@@ -23,6 +23,8 @@ public class capturedChara : MonoBehaviour
 
     public bool unlocked;
     public int cost;
+
+    public Sprite rodSprite;//ïêäÌÇÃâÊëú
     // Start is called before the first frame update
     void Start()
     {
@@ -94,6 +96,7 @@ public class capturedChara : MonoBehaviour
                     Sc.ShotSpeed[newCharaIndex] = (ShotSpeed);
                     Sc.Capacity[newCharaIndex] = (Capacity);
                     Sc.charactorImage[newCharaIndex] = (gameObject.GetComponent<SpriteRenderer>().sprite);
+                    Sc.rodImage[newCharaIndex]= rodSprite;
                     Sc.walkAnim[newCharaIndex] = (walkAnim);
 
                     Gunsc.exist[newCharaIndex] = true;

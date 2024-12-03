@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrowShot
       objectReference: {fileID: 0}
+    - target: {fileID: 5815180551336745776, guid: 6044863fc78c33f4c8274ac1721daf7b, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5815180551336745777, guid: 6044863fc78c33f4c8274ac1721daf7b, type: 3}
       propertyPath: m_Sprite
       value: 

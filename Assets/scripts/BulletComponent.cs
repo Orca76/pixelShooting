@@ -38,7 +38,7 @@ public class BulletComponent : MonoBehaviour
     public int componentType = 0;//0弾丸1調整 2 コネクトパーツ
 
     public int itemPrice;//価格
-
+    public bool attachment = false;//アタッチメントか
     SpriteRenderer renderer;
 
     void Start()
@@ -53,8 +53,8 @@ public class BulletComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-       
+
+
 
         if (!Picked)//まだ拾われていない
         {
@@ -84,7 +84,7 @@ public class BulletComponent : MonoBehaviour
                         Picked = true;
                         Player.GetComponent<PlayerBase>().money -= itemPrice;//金払う
                     }
-                    
+
                 }
             }
 
@@ -144,7 +144,7 @@ public class BulletComponent : MonoBehaviour
                 bulletDamageTx.text = "Damage:" + damage.ToString();
                 bulletExplainTx.text = explain;
             }
-           
+
 
         }
 
@@ -174,4 +174,31 @@ public class BulletComponent : MonoBehaviour
         }
         return target;
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+
+    //    //アタッチメントではない
+    //    if (!attachment)
+    //    {
+    //        Debug.Log("ここまで取れてます");
+    //        if (collision.CompareTag("Component"))
+    //        {
+    //            Debug.Log("接触が発生　自身のIDは" + gameObject.GetInstanceID());
+    //            int x = gameObject.GetInstanceID() + Adjust * 10000;
+    //            int y = collision.GetInstanceID() + collision.GetComponent<BulletComponent>().Adjust * 100000;
+    //            if (x > y)
+    //            {
+    //                //自身の方が内部コードが上
+
+    //                damage += 1;
+    //                cost *= 0.8f;
+    //                Destroy(collision.gameObject);
+    //            }
+    //        }
+          
+    //    }
+
+    //    //
+    //}
 }

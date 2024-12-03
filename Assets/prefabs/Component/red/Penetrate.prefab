@@ -117,6 +117,7 @@ MonoBehaviour:
   Adjust: 0
   componentType: 1
   itemPrice: 0
+  attachment: 1
 --- !u!114 &4778305470508395757
 MonoBehaviour:
   m_ObjectHideFlags: 0

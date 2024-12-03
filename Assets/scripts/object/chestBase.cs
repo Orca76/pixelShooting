@@ -17,10 +17,13 @@ public class chestBase : MonoBehaviour
 
     public int componentNumber;//指定のコンポーネントを取得
     public bool randomItem = true;
+    public bool mimic = false;
+    public GameObject mimicObj;
     void Start()
     {
         player = GameObject.FindWithTag("Player");
         data = GameObject.Find("GunSystem").GetComponent<DataBase>();
+        mimic = Random.Range(0, 100) < 10;
     }
 
     // Update is called once per frame
@@ -34,6 +37,12 @@ public class chestBase : MonoBehaviour
             {
                 if (distance > Vector3.Distance(gameObject.transform.position, player.transform.position))//プレイヤーから一定以上近い（宝箱に触れている）
                 {
+                    if (mimic)
+                    {
+                        Instantiate(mimicObj, transform.position, transform.rotation);
+                        Destroy(gameObject);
+                    }
+
                     //ボタンの処理追加するかも
                     if (randomItem)
                     {

@@ -34,6 +34,8 @@ public class enemyBase : MonoBehaviour
     public GameObject HpBar;//反転処理用
 
     public GameObject ClearCanvas;//ボスドロップみたいなもん クリア表示
+    public bool secretBoss = false;
+    public GameObject queen;
     // Start is called before the first frame update
     void Start()
     {
@@ -126,6 +128,10 @@ public class enemyBase : MonoBehaviour
             if (!minion)//ボス死亡時
             {
                 Instantiate(ClearCanvas);//クリア演出
+            }
+            if (secretBoss)
+            {
+                Instantiate(queen, transform.position,transform.rotation);
             }
             Destroy(gameObject);
         }
