@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: requiredMp
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4121874165221222199, guid: f99073376a392494798c1714e0e59217, type: 3}
+      propertyPath: hitParticle
+      value: 
+      objectReference: {fileID: 8232975115344235777, guid: 7e08c75339b090444a6fe5bdb394999c, type: 3}
     - target: {fileID: 4121874165221222216, guid: f99073376a392494798c1714e0e59217, type: 3}
       propertyPath: m_Sprite
       value: 

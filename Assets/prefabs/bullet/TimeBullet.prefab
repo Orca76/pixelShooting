@@ -110,7 +110,8 @@ MonoBehaviour:
   damageText: {fileID: 7334577376043158312, guid: 8af27fa58acdc3a49a273afadda150aa, type: 3}
   multiHit: 0
   interval: 0
-  hitParticle: {fileID: 0}
+  hitParticle: {fileID: 8186128868553528911, guid: c9ff36b242a28524694875c794e24ca9, type: 3}
+  particle: {fileID: 0}
 --- !u!61 &3761531160089741565
 BoxCollider2D:
   m_ObjectHideFlags: 0
