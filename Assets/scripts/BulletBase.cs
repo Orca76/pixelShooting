@@ -94,7 +94,7 @@ public class BulletBase : MonoBehaviour
                 GameObject DamageUI = Instantiate(damageText, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
                 DamageUI.transform.SetParent(damageCanvas.transform);
 
-                DamageUI.GetComponent<TextMeshProUGUI>().color = Color.red;
+                DamageUI.GetComponent<TextMeshProUGUI>().color = Color.white;
 
                 DamageUI.GetComponent<TextMeshProUGUI>().text = Damage.ToString();
                 //
@@ -146,7 +146,7 @@ public class BulletBase : MonoBehaviour
                     GameObject DamageUI = Instantiate(damageText, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
                     DamageUI.transform.SetParent(damageCanvas.transform);
 
-                    DamageUI.GetComponent<TextMeshProUGUI>().color = Color.red;
+                    DamageUI.GetComponent<TextMeshProUGUI>().color = Color.white;
 
                     DamageUI.GetComponent<TextMeshProUGUI>().text = Damage.ToString();
                     //

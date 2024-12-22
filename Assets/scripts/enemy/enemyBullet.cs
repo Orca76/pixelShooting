@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class enemyBullet : MonoBehaviour
@@ -12,6 +13,9 @@ public class enemyBullet : MonoBehaviour
     Rigidbody2D rig;
 
     public float delay;
+
+    public GameObject damageText;
+    GameObject damageCanvas;
     public bool normalShot = true;//親オブジェクトが存在する場合は関係を切る　通常の弾丸としての挙動を
 
     float t;
@@ -19,6 +23,7 @@ public class enemyBullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        damageCanvas = GameObject.Find("damageCanvas");
         Destroy(gameObject, lifetime); // lifetime秒後にGameObjectを破壊
         rig = GetComponent<Rigidbody2D>();
         if (normalShot)
@@ -30,13 +35,13 @@ public class enemyBullet : MonoBehaviour
         }
     }
 
- 
+
 
 
     // Update is called once per frame
     void Update()
     {
-      //  t += Time.deltaTime;
+        //  t += Time.deltaTime;
         if (delay > 0)
         {
             delay -= Time.deltaTime;
@@ -45,7 +50,7 @@ public class enemyBullet : MonoBehaviour
         {
             rig.velocity = transform.up * speed;
         }
-        
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -58,6 +63,21 @@ public class enemyBullet : MonoBehaviour
             if (!specialBullet)
             {
                 collision.gameObject.GetComponent<PlayerBase>().HP[collision.GetComponent<PlayerBase>().CharaIndex] -= Damage;
+
+
+
+                GameObject DamageUI = Instantiate(damageText, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
+                DamageUI.transform.SetParent(damageCanvas.transform);
+
+                DamageUI.GetComponent<TextMeshProUGUI>().color = Color.red;
+
+                DamageUI.GetComponent<TextMeshProUGUI>().text = Damage.ToString();
+                //
+
+              //  collision.gameObject.GetComponent<PlayerBase>().HP[collision.gameObject.GetComponent<PlayerBase>().CharaIndex] -= Damage;//hpを減らす
+
+
+
                 if (!penetrate)
                 {
                     Destroy(gameObject);

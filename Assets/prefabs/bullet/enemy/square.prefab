@@ -151,5 +151,6 @@ MonoBehaviour:
   speed: 2
   lifetime: 3
   delay: 0
+  damageText: {fileID: 7334577376043158312, guid: 8af27fa58acdc3a49a273afadda150aa, type: 3}
   normalShot: 1
   specialBullet: 0

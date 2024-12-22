@@ -248,7 +248,7 @@ public class PlayerBase : MonoBehaviour
                         isGameOver = true;
                         gameObject.GetComponent<BoxCollider2D>().isTrigger = true;//€–S‚É“–‚½‚è”»’è‚ğƒgƒŠƒK[‚É•ÏX
 
-
+                        GetComponent<SpriteRenderer>().enabled = false;
                         gameOverImageColor = gameOverBlack.color;
                         gameOverAlpha += fadeSpeed * Time.deltaTime;
                         gameOverBlack.color = new Color(currentColor.r, currentColor.g, currentColor.b, gameOverAlpha);

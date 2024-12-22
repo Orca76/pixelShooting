@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealValue: 25
+  healParticle: {fileID: 2166262571157194069, guid: 3490295a65343254bb76febc723a4b7f, type: 3}
 --- !u!114 &1549433272043260259
 MonoBehaviour:
   m_ObjectHideFlags: 0

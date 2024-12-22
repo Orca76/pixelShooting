@@ -502,6 +502,9 @@ MonoBehaviour:
   lockOn: 1
   disappier: 1
   HpBar: {fileID: 1351941120}
+  ClearCanvas: {fileID: 0}
+  secretBoss: 0
+  queen: {fileID: 0}
 --- !u!114 &7178204211718667545
 MonoBehaviour:
   m_ObjectHideFlags: 0

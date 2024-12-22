@@ -1032,6 +1032,34 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4712629024829972549, guid: 7f915d714d71231488062a927ad76b8f, type: 3}
     - target: {fileID: 4137506621978924855, guid: cb6f41e42099f6f45ad45d3ab0d3b28d, type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 2015551823432687143, guid: bac1e7fc53d3bfb43a733291d4605eb2, type: 3}
+    - target: {fileID: 4137506621978924855, guid: cb6f41e42099f6f45ad45d3ab0d3b28d, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 2034912871607053809, guid: 3267151b32626ec43bba92529fbfe8e7, type: 3}
+    - target: {fileID: 4137506621978924855, guid: cb6f41e42099f6f45ad45d3ab0d3b28d, type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 3808872081376182503, guid: f05631e1494f5d047baad1d67fbffde9, type: 3}
+    - target: {fileID: 4137506621978924855, guid: cb6f41e42099f6f45ad45d3ab0d3b28d, type: 3}
+      propertyPath: enemies.Array.data[3]
+      value: 
+      objectReference: {fileID: 3454841425351217387, guid: 0ea73d66191337e44a7f60b7413fc927, type: 3}
+    - target: {fileID: 4137506621978924855, guid: cb6f41e42099f6f45ad45d3ab0d3b28d, type: 3}
+      propertyPath: enemies.Array.data[4]
+      value: 
+      objectReference: {fileID: 6667460379304823116, guid: 2278f2c9b45a5514699fcb6763f45c8f, type: 3}
+    - target: {fileID: 4137506621978924855, guid: cb6f41e42099f6f45ad45d3ab0d3b28d, type: 3}
+      propertyPath: enemies.Array.data[5]
+      value: 
+      objectReference: {fileID: 2064468874105473596, guid: 7f24ca530b4cb4c48ae94e07ec87ca3b, type: 3}
+    - target: {fileID: 4137506621978924855, guid: cb6f41e42099f6f45ad45d3ab0d3b28d, type: 3}
+      propertyPath: enemies.Array.data[6]
+      value: 
+      objectReference: {fileID: 8759902665838665208, guid: f896ff3ebcac9714184e9818314e73e7, type: 3}
+    - target: {fileID: 4137506621978924855, guid: cb6f41e42099f6f45ad45d3ab0d3b28d, type: 3}
       propertyPath: Bullets.Array.data[17]
       value: 
       objectReference: {fileID: 4121874165221222195, guid: f99073376a392494798c1714e0e59217, type: 3}

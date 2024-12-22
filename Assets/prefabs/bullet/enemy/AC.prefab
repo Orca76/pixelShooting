@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3096537712274653109, guid: 1b0e29f12229d8b4caf0ef47858ae50d, type: 3}
+      propertyPath: damageText
+      value: 
+      objectReference: {fileID: 7334577376043158312, guid: 8af27fa58acdc3a49a273afadda150aa, type: 3}
     - target: {fileID: 8089398884218769081, guid: 1b0e29f12229d8b4caf0ef47858ae50d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -53,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8089398884218769091, guid: 1b0e29f12229d8b4caf0ef47858ae50d, type: 3}
       propertyPath: m_Name
-      value: enemyBullet_accelarate
+      value: AC
       objectReference: {fileID: 0}
     - target: {fileID: 8089398884218769092, guid: 1b0e29f12229d8b4caf0ef47858ae50d, type: 3}
       propertyPath: speed

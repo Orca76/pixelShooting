@@ -423,6 +423,9 @@ MonoBehaviour:
   statusType: 0
   costText: {fileID: 4931528978872522962}
   circleType: 1
+  secretBoss: {fileID: 0}
+  baseCost: 50
+  healParticle: {fileID: 2166262571157194069, guid: 3490295a65343254bb76febc723a4b7f, type: 3}
 --- !u!61 &4874805424096308933
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -8,6 +8,8 @@ public class aidKit : MonoBehaviour
     float dist = 0.1f;
     GameObject player;
     public float HealValue = 50f;
+
+    public GameObject healParticle;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +35,7 @@ public class aidKit : MonoBehaviour
                
                 player.GetComponent<PlayerBase>().HP[player.GetComponent<PlayerBase>().CharaIndex] += HealValue;
 
-
+                Instantiate(healParticle,player.transform.position,transform.rotation);
                 Destroy(gameObject);
 
             }

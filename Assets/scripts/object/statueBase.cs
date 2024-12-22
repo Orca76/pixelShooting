@@ -17,6 +17,8 @@ public class statueBase : MonoBehaviour
     public int circleType = 0;//0ならステータス増強　1なら回復 2なら召喚
     public GameObject secretBoss;
     public int baseCost = 50;
+
+    public GameObject healParticle;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +65,8 @@ public class statueBase : MonoBehaviour
                     {
                         Pdata.HP[Pdata.CharaIndex] += 30;
                         Player.GetComponent<PlayerBase>().money -= cost;//金払う
+                        //回復
+                        Instantiate(healParticle, Player.transform.position, transform.rotation);
                     }
                     else
                     {

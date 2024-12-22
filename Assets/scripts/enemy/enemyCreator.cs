@@ -13,6 +13,9 @@ public class enemyCreator : MonoBehaviour
     public bool enteredRoom;//プレイヤーが部屋に入った
     int createIndex;
     GameObject player;
+
+    public GameObject ClearText;
+    int a = 1;
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -39,7 +42,8 @@ public class enemyCreator : MonoBehaviour
                 {
                     if (GameObject.FindGameObjectsWithTag("enemy").Length < fieldEnemiesNum)//部屋にまだ出撃できるスペースがある
                     {
-                        Instantiate(enemies[Random.Range(0, Mathf.Min(level*2,enemies.Length))], createPosition[createIndex].transform.position, transform.rotation);
+                    var CreatePos = gameObject.transform.position + new Vector3(Random.Range(-0.6f, 0.6f), Random.Range(-0.6f, 0.6f), 0);
+                        Instantiate(enemies[Random.Range(0, Mathf.Min(level*2,enemies.Length))], CreatePos, transform.rotation);
 
                         if (createIndex == createPosition.Length - 1)
                         {
@@ -52,7 +56,21 @@ public class enemyCreator : MonoBehaviour
                         totalEnemiesNum--;
 
                     }
+            }
+            else
+            {
+                //敵全滅
+                if (GameObject.FindGameObjectsWithTag("enemy").Length == 0)
+                {
+                    if (a > 0)
+                    {
+                        Instantiate(ClearText);
+                        a = 0;
+                    }
                 }
+              
+            
+            }
 
             }
         
