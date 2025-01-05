@@ -106,16 +106,18 @@ MonoBehaviour:
   NextBulletNumber: 0
   ComponentIndex: 0
   PlayerIndex: 0
-  bulletName: "\u30CE\u30FC\u30DE\u30EB\u30D0\u30EC\u30C3\u30C8"
-  cost: 1
+  bulletName: "\u30CE\u30FC\u30DE\u30EB\u30B7\u30E7\u30C3\u30C8"
+  cost: 2
   damage: 3
-  explain: "\u666E\u901A\u306E\u5F3E\u4E38"
+  explain: "\u9B54\u6CD5\u306E\u57FA\u672C\u3068\u306A\u308B\u5F3E\u4E38"
   speed: 1
   lifeTime: 1
   Picked: 0
   collisionDistance: 0.075
   Adjust: 0
   componentType: 0
+  itemPrice: 0
+  attachment: 0
 --- !u!61 &4425666889288341969
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -197,13 +199,28 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_Vertices:
+  - position: {x: -0.08, y: 0.08, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 1}
+  - position: {x: 0.08, y: 0.08, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 1, y: 1}
+  - position: {x: -0.08, y: -0.08, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.08, y: -0.08, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 1, y: 0}
   - position: {x: 0, y: 0, z: 0}
     color: {r: 0, g: 0, b: 0, a: 0}
     uv: {x: 0, y: 0}
-  m_Triangles: 0000
+  - position: {x: 0, y: 0, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  m_Triangles: 000001000200020001000300
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.08, y: 0.08, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

@@ -46,7 +46,7 @@ public class DungeonLight : MonoBehaviour
                     light2D.intensity = 0.4f;
                     break;
                 case 4:
-                    light2D.intensity = 0.2f;
+                    light2D.intensity = 0.3f;
                     break;
                 case 5:
                     light2D.intensity = 0.5f;
