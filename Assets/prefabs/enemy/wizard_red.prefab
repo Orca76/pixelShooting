@@ -503,6 +503,10 @@ MonoBehaviour:
   disappier: 1
   HpBar: {fileID: 2643223825395997028}
   ClearCanvas: {fileID: 0}
+  secretBoss: 0
+  queen: {fileID: 0}
+  sound1: {fileID: 0}
+  sound2: {fileID: 8300000, guid: 56794f2e2a9da4444af67883415446cd, type: 3}
 --- !u!114 &5129745807476725885
 MonoBehaviour:
   m_ObjectHideFlags: 0

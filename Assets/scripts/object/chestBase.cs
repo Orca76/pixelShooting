@@ -19,6 +19,8 @@ public class chestBase : MonoBehaviour
     public bool randomItem = true;
     public bool mimic = false;
     public GameObject mimicObj;
+
+    public AudioClip seClip; // 再生したいSEをInspectorで設定
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -37,6 +39,7 @@ public class chestBase : MonoBehaviour
             {
                 if (distance > Vector3.Distance(gameObject.transform.position, player.transform.position))//プレイヤーから一定以上近い（宝箱に触れている）
                 {
+                    GetComponent<AudioSource>().PlayOneShot(seClip);
                     if (mimic)
                     {
                         Instantiate(mimicObj, transform.position, transform.rotation);
@@ -62,7 +65,7 @@ public class chestBase : MonoBehaviour
 
                 if (distance > Vector3.Distance(gameObject.transform.position, player.transform.position))//プレイヤーから一定以上近い（宝箱に触れている）
                 {
-
+                    //GetComponent<AudioSource>().PlayOneShot(seClip);
                     if (Input.GetKeyDown(KeyCode.Space))//お支払い
                     {
                         if (player.GetComponent<PlayerBase>().money >= cost)//金が足りるか

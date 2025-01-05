@@ -37,6 +37,10 @@ public class enemyBase : MonoBehaviour
     public bool secretBoss = false;
     public GameObject queen;
     // Start is called before the first frame update
+
+    public AudioClip sound1; // çƒê∂ÇµÇΩÇ¢SEÇªÇÃ1
+    public AudioClip sound2; // çƒê∂ÇµÇΩÇ¢SEÇªÇÃ2
+    private AudioSource audioSource;
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -45,7 +49,9 @@ public class enemyBase : MonoBehaviour
         {
             gameObject.transform.parent = null;
         }
-       
+        audioSource = GetComponent<AudioSource>();
+      //  audioSource.PlayOneShot(sound1);
+
     }
 
     // Update is called once per frame
@@ -90,6 +96,8 @@ public class enemyBase : MonoBehaviour
 
         if (hp <= 0&&disappier)
         {
+            AudioSource.PlayClipAtPoint(sound2, transform.position);
+
             //ÉhÉçÉbÉvÇÃèàóùÇ∆Ç©èëÇ≠Ç©Ç‡
             int goldDropNum = (dropMoney < 20) ? 0 : (dropMoney / 20);
             dropMoney -= goldDropNum * 20;
@@ -133,6 +141,7 @@ public class enemyBase : MonoBehaviour
             {
                 Instantiate(queen, transform.position,transform.rotation);
             }
+
             Destroy(gameObject);
         }
 

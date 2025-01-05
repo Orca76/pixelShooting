@@ -40,6 +40,8 @@ public class GunManager : MonoBehaviour
     public GameObject[] PlayerExistObj;//プレイヤーが存在するのか判別用のオブジェクト　キャラが生成されたときにスキルスロットを格納　0,1,2,3
 
     public bool[] exist;
+
+    public AudioClip seClip; // 再生したいSEをInspectorで設定
     void Start()
     {
 
@@ -91,6 +93,9 @@ public class GunManager : MonoBehaviour
             {
                 editnum++;
                 gunSet = true;
+
+                //SE
+                GetComponent<AudioSource>().PlayOneShot(seClip);
             }
             if (editnum % 2 != 0)
             {

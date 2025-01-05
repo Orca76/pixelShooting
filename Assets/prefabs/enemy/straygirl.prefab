@@ -505,6 +505,8 @@ MonoBehaviour:
   ClearCanvas: {fileID: 0}
   secretBoss: 1
   queen: {fileID: 1770307832147724650, guid: c0a7e54977dd2e744928ad562eb0b80f, type: 3}
+  sound1: {fileID: 0}
+  sound2: {fileID: 8300000, guid: 56794f2e2a9da4444af67883415446cd, type: 3}
 --- !u!114 &8785107040920083717
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,8 +25,10 @@ public class BulletBase : MonoBehaviour
     public GameObject hitParticle;
 
     public GameObject particle;//パーティ来る
+    public AudioClip seClip; // 再生したいSEをInspectorで設定
     void Start()
     {
+        GetComponent<AudioSource>().PlayOneShot(seClip);
         if (RelatedComponent)
         {
             ComponentScript = RelatedComponent.GetComponent<BulletComponent>();
